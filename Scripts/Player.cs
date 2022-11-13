@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private float hp;
     //dead or not
     bool dead = false;
+    public Text health;
     private Gun gun;
     private void Awake()
     {
@@ -22,13 +23,13 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        health.text = hp.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         if (!dead)
         {
             Move();
@@ -70,10 +71,11 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(hp);
+
         if (other.CompareTag("EnemyBullet"))
         {
-            if(hp <= 0)
+            health.text = hp.ToString();
+            if (hp <= 0)
             {
                 return;
             }

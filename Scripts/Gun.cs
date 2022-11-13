@@ -78,7 +78,7 @@ public class Gun : MonoBehaviour
             bullet.transform.position = dir * -1.0f + transform.position;
             bullet.transform.forward = dir;
 
-            EnemyBullet b = bullet.GetComponent<EnemyBullet>();
+            PlayerBullet b = bullet.GetComponent<PlayerBullet>();
             b.lifeTime = 0.3f;
         }
     }
